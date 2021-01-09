@@ -2,10 +2,10 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 
 vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
-  REPO facebook/rocksdb
-  REF ed4316166f67ec892603014634840d29f460f611 # v6.14.6
-  SHA512 a880a760f6f5a0a591c14fe942914a3ea85c387a901a922955bb2373ae903f96c6035cac8732d3000a3cbe6313016bfb21168bd3d8a7debf5a28c6e5c0aefb3f
-  HEAD_REF master
+  REPO heckj/rocksdb
+  REF 73319c2a28a197b81b40c80c88aaeaf3085fb0c0 # 6.14.6.mason
+  SHA512 5a7a6a4144badc386c1809f4e26daf758aa6872645cb28e7e392af985058117732ee95facc4836972cab1abe5065fdc30985a9cceb06a2774faf68bd317851da
+  HEAD_REF master # 6.14.6 tag
   PATCHES
     0002-only-build-one-flavor.patch
     0003-use-find-package.patch
@@ -47,6 +47,7 @@ vcpkg_configure_cmake(
     -DCMAKE_DISABLE_FIND_PACKAGE_NUMA=TRUE
     -DCMAKE_DISABLE_FIND_PACKAGE_gtest=TRUE
     -DCMAKE_DISABLE_FIND_PACKAGE_Git=TRUE
+    -DROCKSDB_LITE=TRUE
     ${FEATURE_OPTIONS}
 )
 
